@@ -1,34 +1,36 @@
 document.addEventListener('DOMContentLoaded', function(f) {
   console.log("Loaded");
-  const questionList = [
-    {
-      qQuestion: "What is my name?",
-      qGuesses: ["Bob", "Bill", "He who musn't be named", "Taylor"],
-      correctAnser: 3,
+  // questions taken from https://bestlifeonline.com/crazy-random-facts/
+  const questionList = [{
+      qQuestion: "How much time will the average person spend waiting for red lights to turn green?",
+      qGuesses: ["Bob", "Bill", "He who musn't be named", "Stephen Taylor Allen"],
+      correctAnser: 0,
     },
     {
       qQuestion: "Question: B",
       qGuesses: ["A", "B", "C", "D"],
-      correctAnser: 2,
+      correctAnser: 1,
     },
     {
       qQuestion: "Question: C",
       qGuesses: ["A", "B", "C", "D"],
-      correctAnser: 3,
+      correctAnser: 2,
     },
     {
       qQuestion: "Question: D",
       qGuesses: ["A", "B", "C", "D"],
-      correctAnser: 4,
+      correctAnser: 1,
     },
     {
       qQuestion: "Question: B",
-      qGuesses: ["A", "B", "C",],
-      correctAnser: 2,
+      qGuesses: ["A", "B", "C", ],
+      correctAnser: 0,
     },
   ]
   let time = 60;
   let intervalID;
+  let correctNumberAnswered = 0;
+  let incorrectNumberAnswered = 0;
 
   // called when the page loads.
   // starts the count down clock
@@ -46,19 +48,34 @@ document.addEventListener('DOMContentLoaded', function(f) {
       concludeGame();
     }
   }
+
+  function calculateScore() {
+    for (i = 0; i < questionList.length; i++) {
+      //console.log(i);
+      if (document.querySelector('#q' + i + 'g' + questionList[i].correctAnser).checked) {
+        correctNumberAnswered++;
+      } else {
+        incorrectNumberAnswered++;
+      }
+    }
+    alert("Correct number answered: " + correctNumberAnswered)
+  }// end for loop
+
   // if the time has run out we will end the game.
   // tally up correct scores and display to user.
   function concludeGame() {
     clearInterval(intervalID);
     //alert("Game has ended");
+    calculateScore();
   }
 
-  function loadQuestionList(){
+  function loadQuestionList() {
     const questionBody = document.querySelector(".questionBody");
 
-    for (i=0; i < questionList.length; i++){
+    for (i = 0; i < questionList.length; i++) {
       // div wrapper for the question/answer structure
       let newDiv = document.createElement("div");
+      newDiv.setAttribute('id', 'question' + i);
       // p tag for holding question information
 
       let newP = document.createElement('p');
@@ -69,17 +86,18 @@ document.addEventListener('DOMContentLoaded', function(f) {
       let newBreak = document.createElement('br');
       newP.appendChild(newBreak);
 
-      for (j=0; j < questionList[i].qGuesses.length; j++){
+      for (j = 0; j < questionList[i].qGuesses.length; j++) {
         //creates the <input>
         let newInput = document.createElement('input');
 
         let newSpan = document.createElement('span');
+        newSpan.setAttribute('class', 'questionSpan')
         newSpan.innerHTML = questionList[i].qGuesses[j];
         // sets the answer for the question in innerHTML
-        newInput.setAttribute('class','inputButton');
-        newInput.setAttribute('type','radio');
-        newInput.setAttribute('name','q'+ i);
-        newInput.setAttribute('value', i);
+        newInput.setAttribute('class', 'inputButton');
+        newInput.setAttribute('type', 'radio');
+        newInput.setAttribute('id', 'q' + i + 'g' + j);
+        newInput.setAttribute('value', j); // this will drive the correct answer.
         newSpan.prepend(newInput);
         // append the input to the parent <p>
         newP.appendChild(newSpan);
@@ -89,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function(f) {
 
     }
   };
-
 
 
   // loads question list

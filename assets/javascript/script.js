@@ -3,27 +3,27 @@ document.addEventListener('DOMContentLoaded', function(f) {
   // questions taken from https://bestlifeonline.com/crazy-random-facts/
   const questionList = [{
       qQuestion: "How much time will the average person spend waiting for red lights to turn green?",
-      qGuesses: ["Bob", "Bill", "He who musn't be named", "Stephen Taylor Allen"],
-      correctAnser: 0,
-    },
-    {
-      qQuestion: "Question: B",
-      qGuesses: ["A", "B", "C", "D"],
-      correctAnser: 1,
-    },
-    {
-      qQuestion: "Question: C",
-      qGuesses: ["A", "B", "C", "D"],
+      qGuesses: ["50 minutes", "1 month", "6 months", "1 year"],
       correctAnser: 2,
     },
     {
-      qQuestion: "Question: D",
-      qGuesses: ["A", "B", "C", "D"],
+      qQuestion: "A bolt of lightning contains enough energy to toast how many pieces of bread?",
+      qGuesses: ["1,000", "10,000", "100,000", "1,000,000"],
+      correctAnser: 2,
+    },
+    {
+      qQuestion: "The worlds largest pyramid is located in? ",
+      qGuesses: ["Giza", "Khufu", "El Mirador", "Cholula"],
       correctAnser: 1,
     },
     {
-      qQuestion: "Question: B",
-      qGuesses: ["A", "B", "C", ],
+      qQuestion: "The largest snowflake on record was __ inches wide",
+      qGuesses: ["1", "12", "14", "15"],
+      correctAnser: 3,
+    },
+    {
+      qQuestion: "This punctuation mark '?!' is called an interrobang",
+      qGuesses: ["True", "False"],
       correctAnser: 0,
     },
   ]

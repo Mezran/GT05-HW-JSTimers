@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function(f) {
     {
       qQuestion: "Flipping a shark upside down renders it immobile for up to ",
       qGuesses: ["10 seconds", "15 minutes", "30 minutes", "1 hour"],
-      correctAnser: 0,
+      correctAnser: 1,
     },
   ]
   let time = 60;

@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', function(f) {
     }
   }
 
+  // if the time has run out we will end the game.
+  // tally up correct scores and display to user.
+  function concludeGame() {
+    clearInterval(intervalID);
+    //alert("Game has ended");
+    calculateScore();
+  }
+
+
   function calculateScore() {
     for (i = 0; i < questionList.length; i++) {
       //console.log(i);
@@ -68,16 +77,10 @@ document.addEventListener('DOMContentLoaded', function(f) {
         incorrectNumberAnswered++;
       }
     }
-    alert("Correct number answered: " + correctNumberAnswered)
+    alert("Correct number answered: " + correctNumberAnswered + " incorrect number answered: " + incorrectNumberAnswered );
+
   }// end for loop
 
-  // if the time has run out we will end the game.
-  // tally up correct scores and display to user.
-  function concludeGame() {
-    clearInterval(intervalID);
-    //alert("Game has ended");
-    calculateScore();
-  }
 
   function loadQuestionList() {
     const questionBody = document.querySelector(".questionBody");

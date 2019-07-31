@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', function(f) {
       qGuesses: ["True", "False"],
       correctAnser: 0,
     },
+    {
+      qQuestion: "Melting glaciers make a fizzy sound called 'bergy seltzer'",
+      qGuesses: ["True", "False"],
+      correctAnser: 0,
+    },
+    {
+      qQuestion: "Flipping a shark upside down renders it immobile for up to ",
+      qGuesses: ["10 seconds", "15 minutes", "30 minutes", "1 hour"],
+      correctAnser: 0,
+    },
   ]
   let time = 60;
   let intervalID;
